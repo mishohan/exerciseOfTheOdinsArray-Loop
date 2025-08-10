@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate border-left-width to borderLeftWidth</title>
+</head>
+<body>
+
+    <script>
+
+        function camelize(array){
+
+            let transformed = 
+            array.split('-')
+            .map(
+                (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+            .join('');
+
+            console.log(transformed);
+
+        }
+
+        camelize("-webkit-transition"); // WebkitTransition
+        camelize("list-style-image"); // listStyleImage
+        camelize("background-color"); // backgroundColor
+        
+    </script>
+    
+</body>
+</html>

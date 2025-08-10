@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy & Sort Array</title>
+</head>
+<body>
+    <script>
+
+        let array = ["HTML", "JavaScript", "CSS"];
+
+        function copySorted(arr){
+            return arr.slice().sort();
+        }
+        let sorted = copySorted(array);
+        console.log(sorted); // ['CSS', 'HTML', 'JavaScript']
+        console.log(array); // ['HTML', 'JavaScript', 'CSS']
+
+    </script>
+</body>
+</html>

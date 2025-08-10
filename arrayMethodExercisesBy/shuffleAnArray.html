@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuffle an Array</title>
+</head>
+<body>
+    <script>
+
+        //ex-1: This method allows us to shuffle a small array but is not quit accurate
+
+        function suffleArray(array){
+            array.sort(() => Math.random() - 0.5)
+            
+        }
+
+        let arr = [1, 2, 3];
+        suffleArray(arr);
+        console.log(arr)
+
+
+        //ex-2: A more accurate way to suffle an array
+
+        function shuffle(array){
+            for(let i = array.length - 1; i > 0; i--){
+                let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to 1
+
+                // swap elements array[i] and array[j]
+                // we use "destructuring assignment" syntax to achieve that
+                // same can be written as:
+                // let t = array[i]; array[i] = array[j]; array[j] = t;
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        let array = [1, 2, 3];
+
+        shuffle(array)
+        console.log(array)
+
+
+
+        // To test the accuracy we can use the function below
+
+        let count = {
+            '123': 0,
+            '132': 0,
+            '213': 0,
+            '231': 0,
+            '321': 0,
+            '312': 0,
+            
+        };
+
+        for(let i = 0; i < 1000000; i++){
+            let array  = [1, 2, 3];
+            // suffleArray(array); // shows the possibilities of all possible outcomes of 6 probabilities : ex 1
+            shuffle(array); // ex: 2
+            count[array.join('')]++;
+        }
+        
+    // Show counts of all possible premutaions
+    for(let key in count) {
+        console.log(`${key}: ${count[key]}`);
+    }
+
+        
+    </script>
+</body>
+</html>
